@@ -1,5 +1,7 @@
-﻿using Machine.Specifications;
+﻿using System.Collections.Generic;
+using Machine.Specifications;
 using developwithpassion.specifications.rhinomocks;
+using developwithpassion.specifications.extensions;
 using nothinbutdotnetstore.web.application.catalogbrowsing;
 using nothinbutdotnetstore.web.core;
 
@@ -19,6 +21,7 @@ namespace nothinbutdotnetstore.specs
             Establish c = () =>
             {
                 request = fake.an<IContainRequestInformation>();
+                department_repository = depends.on<IDepartmentProvider>();
             };
 
             //Act
@@ -26,9 +29,11 @@ namespace nothinbutdotnetstore.specs
                 sut.process(request);
 
             //Assert
-            It first_observation = () =>
+            private It should_return_a_list_of_departments = () => 
+                department_repository.received(x => x.get_all_departments());
 
-            static IContainRequestInformation request; 
+            static IContainRequestInformation request;
+            static IDepartmentProvider department_repository;
         }
     }
 }

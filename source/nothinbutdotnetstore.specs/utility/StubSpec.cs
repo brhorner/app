@@ -12,13 +12,22 @@ namespace nothinbutdotnetstore.specs
     [Subject(typeof (Stub))]
     public class StubSpec
     {
-        public abstract class concern : Observes
+        public class StubTest
+        {
+            
+        }
+
+        public abstract class concern : Observes<StubTest>
         {
 
         }
 
         public class when_requesting_a_stub_from_the_stub_generator : concern
         {
+            private Establish c = () =>
+                                      {
+                                          stub_test = new StubTest();
+                                      };
 
             private Because b = () => result = Stub.with<StubDisplayEngine>();
 
@@ -26,6 +35,7 @@ namespace nothinbutdotnetstore.specs
                                                                  result.ShouldBeOfType<StubDisplayEngine>();
 
             static StubDisplayEngine result;
+            static StubTest stub_test;
         }
     }
 }

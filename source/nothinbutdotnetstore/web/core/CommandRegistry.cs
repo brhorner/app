@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using nothinbutdotnetstore.web.core.stubs;
+using nothinbutdotnetstore.web.core.utility;
 
 namespace nothinbutdotnetstore.web.core
 {
@@ -15,8 +16,8 @@ namespace nothinbutdotnetstore.web.core
             this.special_case = special_case;
         }
 
-        public CommandRegistry():this(new StubSetOfCommands(),
-            new StubMissingCommand())
+        public CommandRegistry():this(Stub.with<StubSetOfCommands>(),
+            Stub.with<StubMissingCommand>())
         {
         }
 

@@ -1,4 +1,5 @@
 ﻿using System.Web;
+using nothinbutdotnetstore.web.core.utility;
 
 namespace nothinbutdotnetstore.web.core.stubs
 {
@@ -6,7 +7,7 @@ namespace nothinbutdotnetstore.web.core.stubs
     {
         public IContainRequestInformation create_request_from(HttpContext context)
         {
-            return new StubRequest();
+            return Stub.with<StubRequest>();
         }
 
         class StubRequest : IContainRequestInformation

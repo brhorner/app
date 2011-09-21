@@ -22,8 +22,13 @@ namespace nothinbutdotnetstore.specs
         {
             Establish c = () =>
                               {
+                                  the_department_departments = new List<Department>();
                                   request = fake.an<IContainRequestInformation>();
                                   display_engine = depends.on<IDisplayReports>();
+                                  department_repository = depends.on<IFindDepartments>();
+
+                                  department_repository.setup(x => x.get_departments_for_department(request.department))
+                                        .Return(the_department_departments);
                               };
 
             Because b = () =>
@@ -35,6 +40,7 @@ namespace nothinbutdotnetstore.specs
             static IEnumerable<Department> the_department_departments;
             static IContainRequestInformation request;
             static IDisplayReports display_engine;
+            static IFindDepartments department_repository;
         }
     }
 }

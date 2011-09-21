@@ -51,6 +51,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.Build.Tasks.v4.0" />
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core">
@@ -80,10 +81,14 @@
     <Compile Include="MessageGenerator.cs" />
     <Compile Include="web\application\catalogbrowsing\Department.cs" />
     <Compile Include="web\application\catalogbrowsing\IFindDepartments.cs" />
-    <Compile Include="web\application\catalogbrowsing\stubs\StubDepartmentRepository.cs" />
+    <Compile Include="web\application\catalogbrowsing\IFindProducts.cs" />
+    <Compile Include="web\application\catalogbrowsing\Product.cs" />
+    <Compile Include="web\core\stubs\StubDepartmentRepository.cs" />
     <Compile Include="web\application\catalogbrowsing\ViewTheDepartmentsOfADepartment.cs" />
     <Compile Include="web\application\catalogbrowsing\ViewTheDepartmentsOfADepartmentInput.cs" />
     <Compile Include="web\application\catalogbrowsing\ViewTheMainDepartments.cs" />
+    <Compile Include="web\application\catalogbrowsing\ViewTheProductsOfADepartment.cs" />
+    <Compile Include="web\application\catalogbrowsing\ViewTheProductsOfADepartmentInput.cs" />
     <Compile Include="web\core\CommandRegistry.cs" />
     <Compile Include="web\core\FrontController.cs" />
     <Compile Include="web\core\IContainRequestInformation.cs" />
@@ -99,6 +104,7 @@
     <Compile Include="web\core\stubs\Stub.cs" />
     <Compile Include="web\core\stubs\StubDisplayEngine.cs" />
     <Compile Include="web\core\stubs\StubMissingCommand.cs" />
+    <Compile Include="web\core\stubs\StubProductRepository.cs" />
     <Compile Include="web\core\stubs\StubRequestFactory.cs" />
     <Compile Include="web\core\stubs\StubSetOfCommands.cs" />
   </ItemGroup>
